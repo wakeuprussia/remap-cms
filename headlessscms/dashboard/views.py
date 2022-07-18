@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 from pyuploadcare import Uploadcare
-uploadcare = Uploadcare(public_key='980f1be310ad78e5488b', secret_key='4b2f82dc13c00168d5fe')
+uploadcare = Uploadcare(public_key='', secret_key='')
 
 from . import serializers
 from . import models
@@ -42,7 +42,7 @@ def single(request, slug):
 
 
 def get_posts(request):
-    client = contentful.Client('wvu4fbse6d4b', '_cmrhqx7FzIA5qnfzzcWfjI8dEfX0f-rrKeqsopQP0g', api_url = 'cdn.contentful.com')
+    client = contentful.Client('', '', api_url = 'cdn.contentful.com')
     entries = client.entries({'content_type': 'post', 'limit':'1000', 'locale': '*'})
     for en in entries:
         #pprint.pprint(en.__dict__)
@@ -96,7 +96,7 @@ def get_posts(request):
 
 
 def get_protest_types(request):
-    client = contentful.Client('wvu4fbse6d4b', '_cmrhqx7FzIA5qnfzzcWfjI8dEfX0f-rrKeqsopQP0g', api_url = 'cdn.contentful.com')
+    client = contentful.Client('', '', api_url = 'cdn.contentful.com')
     entries = client.entries({'content_type': 'type', 'limit':'1000', 'locale': '*'})
     for en in entries:
         # pprint.pprint(en.__dict__)
